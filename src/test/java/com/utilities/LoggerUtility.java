@@ -1,0 +1,27 @@
+package com.utilities;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class LoggerUtility {
+	// we will do globl config/ setup for logger
+	//we use singleton design pattern while create LoggerUtility class 
+	
+
+	
+
+	private LoggerUtility() {
+		//
+	}
+
+	public static Logger getLogger(Class<?> clazz) {
+		 Logger logger=null;
+		 
+		if (logger == null) {
+			logger = LogManager.getLogger(clazz);
+		}
+		return logger;
+
+	}
+
+}
