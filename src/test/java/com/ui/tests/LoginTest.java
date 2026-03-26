@@ -9,9 +9,10 @@ import com.utilities.BrowserUtility;
 
 public class LoginTest {
 //https://automationpractice.techwithjatin.com/;=
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 
-		WebDriver wd = new ChromeDriver();
+		/*WebDriver wd = new ChromeDriver();
 		
 		//create an object of the class
 		BrowserUtility browserUtility = new BrowserUtility(wd);
@@ -34,7 +35,8 @@ public class LoginTest {
 		By submitBtnLocator = By.xpath("//button[@type='submit' and @name='SubmitLogin']/span");
 		browserUtility.clickOn(submitBtnLocator);
 		
-
+*/
 	}
+	
 
 }
