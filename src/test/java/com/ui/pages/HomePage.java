@@ -24,8 +24,9 @@ public final class HomePage extends BrowserUtility {
 	
 	
 	
-	public HomePage(WebDriver lambdaDriver) {
-		super(lambdaDriver);
+	public HomePage(WebDriver driver) {
+		super(driver);
+		
 	}
 
 
