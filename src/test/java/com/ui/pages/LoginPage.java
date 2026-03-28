@@ -10,6 +10,7 @@ public final class LoginPage extends BrowserUtility {
 	 private static final By EMAIL_TEXTBOX_LOCATOR = By.id("email");
 	 private static final By PASSWORD_TEXTBOX_LOCATOR= By.id("passwd");
 	 private static final By SUBMIT_BTN_LOCATOR = By.xpath("//button[@type='submit' and @name='SubmitLogin']/span");
+	 private static final By ERROR_MESSAGE_LOCATOR = By.xpath("//div[contains(@class,\"alert-danger\")]/ol/li");
 	
 
 	public LoginPage(WebDriver driver) {
@@ -26,5 +27,23 @@ public final class LoginPage extends BrowserUtility {
 		
 		
 	}
+	
+	
+public LoginPage doLoginWithInvalidCredentials(String email, String password) {
+		
+		enterText(EMAIL_TEXTBOX_LOCATOR,email);
+		enterText(PASSWORD_TEXTBOX_LOCATOR,password);
+		clickOn(SUBMIT_BTN_LOCATOR);
+			
+		//this method will return LoginPage because due to invalid credentials user stuck on login page only 
+		LoginPage loginPage = new LoginPage(getDriver());
+		return loginPage;	
+	}
+
+
+public String getErrorMesg() {
+	return getVisibleText(ERROR_MESSAGE_LOCATOR);
+}
+	
 
 }

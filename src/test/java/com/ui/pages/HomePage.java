@@ -17,8 +17,7 @@ public final class HomePage extends BrowserUtility {
 	private static final By SIGN_IN_LINK_LOCATOR = By.xpath("//a[contains(text(), 'Sign in')]");
 	
 	public HomePage(Browser browser, boolean isHeadless) {
-		
-		super(browser,isHeadless);
+				super(browser,isHeadless);
 		goToWebsite(JSONUtility.readJson(QA).getUrl());	
 	}
 	

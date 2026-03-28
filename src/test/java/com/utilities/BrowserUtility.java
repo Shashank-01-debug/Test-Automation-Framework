@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +30,7 @@ public abstract class BrowserUtility {
 	// instance variable is stored in heap memory
 	
 	
-	public WebDriver getDriver() {
+	public static WebDriver getDriver() {
 		
 			return driver.get();
 		}
@@ -143,17 +145,49 @@ public BrowserUtility(Browser browserName, boolean isHeadless) {
 		
 	}
 	
-	public void enterText(By locator,String textToEnter) {
+	public static void enterText(By locator,String textToEnter) {
 		WebElement element = driver.get().findElement(locator);
 		element.sendKeys(textToEnter);
 	}
+	
+	public  static void enterSpecialKey(By locator,Keys keyToEnter) {
+		WebElement element = driver.get().findElement(locator);
+		element.sendKeys(keyToEnter);
+	}
+	
+	
 
 	public String getVisibleText(By locator) {
+		
 		
 		WebElement element = driver.get().findElement(locator);
 		return element.getText();
 		
 	}
+	
+public String getAllVisibleText(By locator) {
+		
+		
+		List<WebElement> elementList = driver.get().findElements(locator);
+		
+		for(WebElement element:elementList) {
+			System.out.println(element.getText());
+		}
+		return "";
+		
+		
+	}
+
+public String getVisibleText(WebElement element) {
+	
+	
+	
+	return element.getText();
+	
+}
+
+
+
 	
 	public String takeScreenShot(String name) {
 		
