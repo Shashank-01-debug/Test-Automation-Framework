@@ -2,6 +2,7 @@ package com.ui.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.constants.Browser;
 import com.utilities.BrowserUtility;
@@ -25,6 +26,17 @@ public class SearchResultPage extends BrowserUtility {
 	public void getALLDressesName() {
 		
 		getAllVisibleText(LIST_OF_PRODUCT_ITEMS);
+		
+	}
+	
+	public  static ProductDetailPage clickOnTheProductAt(int index) {
+		
+		WebElement firstProduct = getAllElements(LIST_OF_PRODUCT_ITEMS).get(index);
+		clickOn(firstProduct);
+		
+		ProductDetailPage productDetailPage = new ProductDetailPage(getDriver());
+		return productDetailPage;
+		
 		
 	}
 
